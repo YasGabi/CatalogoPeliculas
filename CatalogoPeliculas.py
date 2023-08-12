@@ -6,10 +6,12 @@ class Pelicula:
     def __str__(self):
         return f"Pelicula: {self.nombre}"
     
-    def met_nombre(self):
+    @property
+    def nombre(self):
         return self.__nombre
     
-    def set_nombre(self,nombre):
+    @nombre.setter
+    def nombre(self,nombre):
         self.__nombre = nombre
 
 class CatalogoPeliculas:
@@ -19,15 +21,13 @@ class CatalogoPeliculas:
 
     def agregar_pelicula(self,pelicula):
         with open(self.ruta_archivo, 'a') as archivo:
-            archivo.write(f"{pelicula.nombre}")
+            archivo.write(f"-{pelicula.nombre}\n")
 
-    def listar_pelicula(self,pelicula):
-         with open(self.ruta_archivo,"a") as archivo:
-             archivo.read(pelicula.nombre)
-             print(f"Listado: \n{pelicula.nombre}\n")
+    def listar_pelicula(self):
+         print("\n---CATALOGO DE PELICULAS---")
+         with open(self.ruta_archivo, 'r') as archivo:
+            print(archivo.read())
 
     def eliminar_pelicula(self):
         os.remove(self.ruta_archivo)
-        print ("El catalogo ha sido eliminado")
-
-        
+        print (f"El catalogo {self.ruta_archivo} ha sido eliminado\n")
