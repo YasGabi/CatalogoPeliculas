@@ -1,4 +1,6 @@
-# Segundo Proyecto Python 
+# CatalogoPeliculas
+
+<em> # Segundo Proyecto Python </em>
 
 Un proyecto que implementa lo aprendido hasta ahora:
 
